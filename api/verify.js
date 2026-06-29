@@ -12,7 +12,7 @@ export default async function handler(req, res) {
         const { key } = req.body;
         
         // قائمة المفاتيح المسموح بها
-        const validKeys = ["PRO-12345", "yaso0981435"];
+        const validKeys = ["PRO-12346", "yaso0981435"];
 
         if (validKeys.includes(key)) {
             // رد النجاح
