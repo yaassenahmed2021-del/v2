@@ -1,5 +1,5 @@
 export default async function handler(req, res) {
-    // إعدادات الـ CORS
+    // إعدادات CORS للسماح بالاتصال من أي مكان
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -10,19 +10,18 @@ export default async function handler(req, res) {
 
     if (req.method === 'POST') {
         const { key } = req.body;
-
-        // قائمة المفاتيح المسموح بها فقط
+        
+        // قائمة المفاتيح المسموح بها
         const validKeys = ["PRO-12345", "yaso0981435"];
 
         if (validKeys.includes(key)) {
-            // إذا وجد المفتاح
-            return res.status(200).json({ status: 'success' });
+            // رد النجاح
+            return res.status(200).json({ success: true, message: "تم التفعيل" });
         } else {
-            // إذا لم يوجد، يجب إرجاع status: error صريحة
-            return res.status(401).json({ status: 'error', message: 'Invalid key' });
+            // رد الخطأ
+            return res.status(401).json({ success: false, message: "مفتاح غير صالح" });
         }
     }
 
-    // إذا تم استدعاء الرابط بطريقة غير POST
     return res.status(404).json({ message: 'Not Found' });
 }
