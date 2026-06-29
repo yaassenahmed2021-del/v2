@@ -1,0 +1,10 @@
+{
+  "name": "v2-api-server",
+  "version": "1.0.0",
+  "description": "Serverless API for License Verification",
+  "main": "api/verify.js",
+  "engines": {
+    "node": "24.x"
+  },
+  "dependencies": {}
+}
